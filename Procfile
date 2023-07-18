@@ -1,0 +1,1 @@
+web: gunicorn ukrainiancafe.wsgi
