@@ -107,6 +107,17 @@ Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` f
 
 Happy coding!
 
+**Media**
+Photo: [name of the photographer], [name of the organization/company that donated the image or the photo] / ukraine.ua/imagebank
+Traditional Ukrainian borscht - photo: Yevhen Kudriavtsev
+
+Fried dumplings with onion and bacon top view - photo: nioloxs - Depositphotos (три вареника)
+
+Spotykach. Liqueur made of berries or fruits - photo:  - klopotenko.com (ликер на темном фоне)
+
+Borscht with prunes and porcini mushrooms - photo:  - klopotenko.com (борщ в правом углу на сером фоне)
+
+Ukrainian varenyky with potatoes and onion - photo: Yevhen Kudriavtsev (варениеи картошкойб цибулей и салом)
 
 **Bugs**
 1. Today's Specials Description with *< p > < /p >* 
