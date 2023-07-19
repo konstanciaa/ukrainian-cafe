@@ -106,3 +106,9 @@ Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` f
 ---
 
 Happy coding!
+
+
+**Bugs**
+1. Today's Specials Description with *< p > < /p >* 
+
+2. Admin can't confirm booking
