@@ -1,17 +1,32 @@
 {% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-        <h1>Hello, it's me</h1>
-        {% for booking in object_list %}
-            <h2> {{ booking.first_name }}</h2>
-            <h2>{{ booking.last_name }}</h2>
-            <p>{{ booking.date }}</p>
-            <p>{{ booking.time }}</p>
-        {% endfor %}
+        <div class="col-md-8 mt-3 offset-md-2">
+            <h2>Your Bookings:</h2>
+            {% for booking in object_list %}
+            <h3> {{ booking.first_name }} {{ booking.last_name }}</h3>
+            <p>{{ booking.date }} {{ booking.time }}</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <h3 class="text-center text-white heading-space">Booking form</h3>
+
+            <p class="text-center text-white">Please use the below form to book a table.</p>
+
+            <form method="POST">
+            {% csrf_token %}
+            {% crispy form %}
+            </form>
+        </div>
     </div>
 </div>
+     
 
 {% endblock %}
