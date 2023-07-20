@@ -123,3 +123,5 @@ Ukrainian varenyky with potatoes and onion - photo: Yevhen Kudriavtsev (варе
 1. Today's Specials Description with *< p > < /p >* 
 
 2. Admin can't confirm booking
+
+3. Menu links don't work on the Booking page. Override extension?
