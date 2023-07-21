@@ -1,4 +1,4 @@
-from .models import Booking, Customer
+from .models import Booking
 from django import forms
 from datetime import datetime
 from crispy_forms.helper import FormHelper

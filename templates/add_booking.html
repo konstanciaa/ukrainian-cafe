@@ -15,14 +15,20 @@
         </div>
     </div>
     <div class="row">
+        <h3 class="text-center text-white heading-space">Booking form</h3>
+        <p class="text-center text-white">Please use the below form to book a table.</p>
         <div class="col-md-8 mt-3 offset-md-2">
-            <h3 class="text-center text-white heading-space">Booking form</h3>
 
-            <p class="text-center text-white">Please use the below form to book a table.</p>
+            <form method="POST" action="{% url 'add_booking' %}" name="form">
 
-            <form method="POST">
-            {% csrf_token %}
-            {% crispy form %}
+                {{ form|crispy }}
+
+                {% csrf_token %}
+
+                <div>
+                    <button class="btn btn-primary" type="submit">Book</button>
+                </div>
+            
             </form>
         </div>
     </div>

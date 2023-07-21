@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
-from .models import Booking, Specials, Customer
+from .models import Booking, Specials
 from .forms import BookingForm
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 # class BookingView(generic.ListView):
