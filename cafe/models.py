@@ -4,6 +4,7 @@ from cloudinary.models import CloudinaryField
 from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
 from django.utils import timezone
+import datetime
 
 # BOOKING_STATUS = ((0, "Awaiting Confirmation"), (1, "Booking Confirmed"), (2, "Booking Declined"))
 
@@ -51,27 +52,28 @@ class Specials(models.Model):
 class Booking(models.Model):
     user = models.ForeignKey(User, null=True, blank=True,
                                 on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=30, null=True, blank=True)
-    last_name = models.CharField(max_length=50, null=True, blank=True)
-    phone = models.CharField(max_length=15, null=True, blank=True)
+    first_name = models.CharField(max_length=30, null=True)
+    last_name = models.CharField(max_length=50, null=True)
+    phone = models.CharField(max_length=15, null=True)
     email = models.EmailField()
-    date_time = models.DateTimeField(null=True)
+    booking_date = models.DateField(null=True, blank=True)
 
-    def validate_date(date_time):
-        if date_time < timezone.now():
+    def validate_date(booking_date):
+        if booking_date < datetime.date.today():
             raise ValidationError("Date cannot be in the past")
-    date_time = models.DateTimeField(null=True, blank=True,
+    booking_date = models.DateField(null=True, blank=True,
                                         validators=[validate_date])
+    time = models.CharField(null=True, blank=True, max_length=5)
     guests = models.PositiveIntegerField(null=True,
                                             validators=[MinValueValidator(1)])
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('user', 'first_name', 'last_name', 'date_time')
+        unique_together = ('user', 'first_name', 'last_name', 'booking_date', 'time')
         ordering = ["-created_on"]
 
     def __str__(self):
         return f' User {self.user} has made a booking \
                     for {self.first_name} {self.last_name} \
                     for {self.guests} people \
-                    for {self.date_time}.'
+                    for {self.booking_date} at {self.time}.'

@@ -39,4 +39,18 @@ class SpecialsView(generic.ListView):
 
 @login_required
 def add_booking(request):
-    
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            booking = form.save()
+            booking.user = request.user
+            booking.save()
+            messages.success(request, 'Booking successful.')
+            return redirect('home')
+        else:
+            messages.error(request, 'Booking date must be in the future.')
+    form = BookingForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'add_booking.html', context)

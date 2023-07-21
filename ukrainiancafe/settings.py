@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'tempus_dominus',
     'crispy_forms',
+    'crispy_bootstrap4',
     'cafe',
 ]
 

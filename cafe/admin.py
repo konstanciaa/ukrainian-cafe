@@ -18,10 +18,10 @@ from django_summernote.admin import SummernoteModelAdmin
 class BookingAdmin(ModelAdmin):
 
     list_display = ('user', 'first_name', 'last_name', 'phone',
-                    'email', 'date_time', 'guests') 
-    search_fields = ['first_name', 'last_name', 'date_time',
+                    'email', 'booking_date', 'time', 'guests')
+    search_fields = ['first_name', 'last_name', 'booking_date', 'time',
                      'phone']
-    list_filter = ('last_name', 'date_time')
+    list_filter = ('last_name', 'booking_date', 'time')
     # actions = ['confirm_booking']
 
     # def confirm_booking(self, request, queryset):
