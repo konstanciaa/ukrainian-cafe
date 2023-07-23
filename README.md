@@ -119,6 +119,18 @@ Borscht with prunes and porcini mushrooms - photo:  - klopotenko.com (борщ �
 
 Ukrainian varenyky with potatoes and onion - photo: Yevhen Kudriavtsev (варениеи картошкойб цибулей и салом)
 
+Lard with spices and herbs on a old wooden table - photo: igorr1 - Depositphotos (salo vertical)
+
+Borscht is a beetroot soup that has over 70 recipes. Usually served with garlic fritters called pampushky. It is included on the list of the Ukrainian intangible heritage - photo: Oksana Sybydlo Food Photographer / їzhakultura - Ukrainian Institute (борщ в треугольной тарелке)
+
+Delicious Chicken Kyiv and mashed potato served on plate on wooden table - photo: AntonMatyukha - Depositphotos (chicken Kyiv)
+
+Spotykach. Liqueur made of berries or fruits - photo:  - klopotenko.com
+
+Traditional kvass beer mug with rye bread on wooden table - photo: etorres69 - Depositphotos
+
+Field of the green wheat near Kitsman, Chernivtsi region - photo: Max Kozmenko
+
 
 **Bugs**
 1. Today's Specials Description with *< p > < /p >* 
