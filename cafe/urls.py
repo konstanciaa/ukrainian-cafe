@@ -7,4 +7,5 @@ from .views import SpecialsView
 urlpatterns = [
     path('', views.SpecialsView.as_view(), name='home'),
     path('add_booking/', views.add_booking, name='add_booking'),
+    path('view_booking/', views.view_booking, name='view_booking'),
 ]
