@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+    <div class="row">
+        <h3 class="text-center heading-space">Are you sure you want to delete this booking?</h3>
+        <p><a href="{% url 'view_booking' %}">No, back to my booking.</a></p>
+        <div class="col-md-8 mt-3 offset-md-2">
+
+            <form method="POST" name="form">
+
+                {{ form | crispy }}
+
+                {% csrf_token %}
+
+                <div><a href="/delete/{{ booking.id }}">
+                    <button class="btn btn-danger btn-primary" type="submit">Delete booking</button></a>
+                </div>
+            
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
