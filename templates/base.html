@@ -46,7 +46,7 @@
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Menu</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">Contact Us</a></li>
                         {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'add_booking' %}">My Bookings</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'view_booking' %}">My Bookings</a></li>
                         {% else %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Booking</a></li>
                         {% endif %}
@@ -64,7 +64,11 @@
             <div class="container">
                 <div class="masthead-subheading">Laskavo Prosymo!</div>
                 <div class="masthead-heading text-uppercase">Welcome to Ukrainian cafe</div>
+                {% if user.is_authenticated %}
+                <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'add_booking' %}">Book a table</a>
+                {% else %}
                 <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'account_login' %}">Book a table</a>
+                {% endif %}
             </div>
         </header>
         <main>
