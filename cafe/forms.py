@@ -4,6 +4,7 @@ from tempus_dominus.widgets import DateTimePicker
 from datetime import datetime
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
+from cloudinary.models import CloudinaryField
 
 
 class BookingForm(forms.ModelForm):
@@ -38,7 +39,7 @@ class SpecialsForm(forms.ModelForm):
         self.helper.add_input(Submit('submit', 'Submit'))
 
     title = forms.CharField(max_length=50)
-    slug = forms.SlugField(unique=True, null=True)
-    description = forms.TextField(max_length=200)
+    slug = forms.SlugField()
+    description = forms.CharField(max_length=200)
     image = CloudinaryField('image', default='placeholder')
-    today = forms.BooleanField(default=True)
+    today = forms.BooleanField()
