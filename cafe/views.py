@@ -22,7 +22,7 @@ def add_booking(request):
             booking.user = request.user
             booking.save()
             messages.success(request, 'Booking successful.')
-            return redirect('home')
+            return redirect('view_booking')
         else:
             messages.error(request, 'Booking date must be in the future.')
     form = BookingForm()
@@ -30,3 +30,12 @@ def add_booking(request):
         'form': form
     }
     return render(request, 'add_booking.html', context)
+
+
+@login_required
+def view_booking(request):
+    bookings = Booking.objects.filter(user__in=[request.user])
+    context = {
+        'bookings': bookings
+    }
+    return render(request, 'view_booking.html', context)
