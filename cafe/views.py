@@ -38,6 +38,12 @@ def view_booking(request):
     context = {
         'bookings': bookings
     }
+    if request.user.is_superuser:
+        bookings = Booking.objects.all()
+        context = {
+            'bookings': bookings
+        }
+        return render(request, 'view_booking.html', context)
     return render(request, 'view_booking.html', context)
 
 
