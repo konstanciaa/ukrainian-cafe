@@ -39,3 +39,21 @@ def view_booking(request):
         'bookings': bookings
     }
     return render(request, 'view_booking.html', context)
+
+
+@login_required
+def edit_booking(request, booking_id):
+    book = get_object_or_404(Booking, id=booking_id)
+    if request.method == "POST":
+        form = BookingForm(request.POST, instance=book)
+        if form.is_valid():
+            booking = form.save()
+            booking.user = request.user
+            booking.save()
+            messages.success(request, 'Your booking has been updated.')
+        return redirect('view_booking')
+    form = BookingForm(instance=book)
+    context = {
+        'form': form
+    }
+    return render(request, 'edit_booking.html', context)
