@@ -25,6 +25,18 @@ The website is designed to be responsible on a range of devices.
 
 ## User Experience (UX)
 
+## Agile Development
+
+## Features
+
+## Future features
+
+## Technology used
+
+## Testing
+
+## Deployment
+
 
 
 ---
@@ -59,4 +71,4 @@ Field of the green wheat near Kitsman, Chernivtsi region - photo: Max Kozmenko
 **Bugs**
 1. Today's Specials Description with *< p > < /p >* 
 
-3. Menu links don't work on the Booking page. Override extension?
+3. Menu links don't work on the Booking page.

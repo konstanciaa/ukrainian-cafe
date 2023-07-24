@@ -7,5 +7,4 @@ from .views import SpecialsView
 urlpatterns = [
     path('', views.SpecialsView.as_view(), name='home'),
     path('add_booking/', views.add_booking, name='add_booking'),
-    # path('booking/', views.BookingView.as_view(), name='booking')
 ]
