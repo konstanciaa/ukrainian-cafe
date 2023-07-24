@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="table-responsive-sm">
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Logged in User</th>
+                <th scope="col">Booking id</th>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Booking date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Phone number</th>
+                <th scope="col">Number of guests</th>
+                <th scope="col">Edit booking</th>
+                <th scope="col">Delete booking</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+
+            <tr>
+                <th scope="row"></th>
+                <td>{{ user.username }}</td>
+                <td>{{ booking.id }}</td>
+                <td>{{ booking.first_name }}</td>
+                <td>{{ booking.last_name }}</td>
+                <td>{{ booking.booking_date }}</td>
+                <td>{{ booking.time }}</td>
+                <td>{{ booking.phone }}</td>
+                <td>{{ booking.guests }}</td>
+                <td>
+                    <div><a class="btn btn-primary" href="/edit/{{ booking.id }}">Edit Booking</a></div>
+                </td>
+                <td>
+                    <div><a class="btn btn-primary btn-danger" href="/delete/{{ booking.id }}">Delete Booking</a></div>
+                </td>
+            </tr>
+        </tbody>
+        {% endfor %}
+        {% csrf_token %}
+    </table>
+</div>
+{% endblock content %}
