@@ -7,17 +7,6 @@ from django.utils import timezone
 import datetime
 
 
-# class Customer(models.Model):
-#     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-#     first_name = models.CharField(max_length=30, null=True, blank=True)
-#     last_name = models.CharField(max_length=50, null=True, blank=True)
-#     phone = models.CharField(max_length=15, null=True, blank=True)
-#     email = models.EmailField(null=True, blank=True)
-
-#     def __str__(self):
-#         return self.user.username
-
-
 # Today's Specials model
 class Specials(models.Model):
     title = models.CharField(max_length=50)

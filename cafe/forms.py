@@ -1,4 +1,4 @@
-from .models import Booking
+from .models import Booking, Specials
 from django import forms
 from tempus_dominus.widgets import DateTimePicker
 from datetime import datetime
@@ -26,3 +26,19 @@ class BookingForm(forms.ModelForm):
     time = forms.CharField(max_length=5)
     guests = forms.IntegerField()
 
+
+class SpecialsForm(forms.ModelForm):
+    class Meta:
+        model = Specials
+        fields = ('title', 'slug', 'description', 'image', 'today')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.add_input(Submit('submit', 'Submit'))
+
+    title = forms.CharField(max_length=50)
+    slug = forms.SlugField(unique=True, null=True)
+    description = forms.TextField(max_length=200)
+    image = CloudinaryField('image', default='placeholder')
+    today = forms.BooleanField(default=True)
