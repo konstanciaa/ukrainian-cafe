@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
 from .models import Booking, Specials
-from .forms import BookingForm
+from .forms import BookingForm, SpecialsForm
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -11,6 +11,24 @@ class SpecialsView(generic.ListView):
     model = Specials
     queryset = Specials.objects.filter(today=True)
     template_name = 'index.html'
+
+
+@login_required
+def add_specials(request):
+    if request.user.is_superuser:
+        if request.method == 'POST':
+            form = SpecialsForm(request.POST)
+            specials = form.save()
+            specials.save()
+            messages.success(request, 'You have successfully added a new item.')
+            return redirect('view_specials')
+
+        form = SpecialsForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'add_specials.html', context)
+
 
 
 @login_required
