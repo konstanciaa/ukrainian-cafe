@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+    <div class="row">
+        <h3 class="text-center heading-space">Edit your booking</h3>
+        <p class="text-center">Please use the below form to make changes.</p>
+        <p><a href="{% url 'view_booking' %}">Tap here</a> if you don't want to edit your booking.</p>
+        <div class="col-md-8 mt-3 offset-md-2">
+
+            <form method="POST" name="form">
+
+                {{ form | crispy }}
+
+                {% csrf_token %}
+
+                <div>
+                    <button class="btn btn-primary" type="submit">Edit booking</button>
+                </div>
+            
+            </form>
+        </div>
+    </div>
+</div>
+     
+
+
+{% endblock content %}
