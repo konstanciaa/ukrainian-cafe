@@ -69,8 +69,13 @@ Field of the green wheat near Kitsman, Chernivtsi region - photo: Max Kozmenko
 
 
 **Bugs**
-1. Today's Specials Description with *< p > < /p >* 
-
+1. When upload image in form "Add Specials", image won't show up. 
+Solution: I had to retrieve request.FILES in the view:
+form = SpecialsForm(request.POST, request.FILES)
+and add the following enctype to the form in html file:
+```
+<form method="POST" name="form" enctype="multipart/form-data"></form>
+```
 2. Menu links don't work on the Booking page.
 
 3. Booking form not rendering in html. I found solution on [stackoverflow.com](https://stackoverflow.com/questions/75495403/django-returns-templatedoesnotexist-when-using-crispy-forms) It says: "inside settings.py in the main app add INSTALLED_APPS = [ ... 'crispy_forms', 'crispy_bootstrap4', ... ] and CRISPY_TEMPLATE_PACK = 'bootstrap4'." It helped me to solve the problem. The booking is now displayed on add_booking.html.
