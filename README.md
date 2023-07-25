@@ -70,8 +70,11 @@ Field of the green wheat near Kitsman, Chernivtsi region - photo: Max Kozmenko
 
 **Bugs**
 1. When upload image in form "Add Specials", image won't show up. 
+
 Solution: I had to retrieve request.FILES in the view:
+```
 form = SpecialsForm(request.POST, request.FILES)
+```
 and add the following enctype to the form in html file:
 ```
 <form method="POST" name="form" enctype="multipart/form-data"></form>
