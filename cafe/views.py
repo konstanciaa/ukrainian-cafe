@@ -44,6 +44,23 @@ def view_specials(request):
 
 
 @login_required
+def edit_specials(request, specials_id):
+    special = get_object_or_404(Specials, id=specials_id)
+    if request.method == "POST":
+        form = SpecialsForm(request.POST, instance=special)
+        if form.is_valid():
+            specials = form.save()
+            specials.save()
+            messages.success(request, 'An item has been updated.')
+        return redirect('today_specials')
+    form = SpecialsForm(instance=special)
+    context = {
+        'form': form
+    }
+    return render(request, 'edit_specials.html', context)
+
+
+@login_required
 def add_booking(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
