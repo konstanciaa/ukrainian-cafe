@@ -31,7 +31,7 @@ class BookingForm(forms.ModelForm):
 class SpecialsForm(forms.ModelForm):
     class Meta:
         model = Specials
-        fields = ('title', 'slug', 'description', 'image', 'today')
+        fields = ('title', 'description', 'image')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -39,7 +39,5 @@ class SpecialsForm(forms.ModelForm):
         self.helper.add_input(Submit('submit', 'Submit'))
 
     title = forms.CharField(max_length=50)
-    slug = forms.SlugField()
     description = forms.CharField(max_length=200)
-    image = CloudinaryField('image', default='placeholder')
-    today = forms.BooleanField()
+    image = forms.ImageField()

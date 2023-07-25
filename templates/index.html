@@ -11,12 +11,14 @@
         </div>
         <div class="row text-center">
             {% for special in specials_list %}
+            
             <div class="col-md-4">
                 <span>
                     <img class="rounded-circle img-fluid" src="{{ special.image.url }}" alt="dish">
                 </span>
                 <h4 class="my-3">{{ special.title }}</h4>
                 <p class="text-muted">{{ special.description }}</p>
+                <p>special image url: {{ special.image.url }}</p>
             </div>
             {% endfor %}
         </div>

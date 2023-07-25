@@ -17,10 +17,13 @@ class SpecialsView(generic.ListView):
 def add_specials(request):
     if request.user.is_superuser:
         if request.method == 'POST':
-            form = SpecialsForm(request.POST)
-            specials = form.save()
-            specials.save()
-            messages.success(request, 'You have successfully added a new item.')
+            form = SpecialsForm(request.POST, request.FILES)
+            if form.is_valid():
+                specials = form.save()
+                specials.save()
+                messages.success(request, 'You have successfully added a new item.')
+            else:
+                print(form.errors)
             return redirect('view_specials')
 
         form = SpecialsForm()
@@ -28,7 +31,6 @@ def add_specials(request):
             'form': form
         }
         return render(request, 'add_specials.html', context)
-
 
 
 @login_required

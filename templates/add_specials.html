@@ -10,7 +10,7 @@
         <p class="text-center">Please use the below form to add new items to Today's Specials.</p>
         <div class="col-md-8 mt-3 offset-md-2">
 
-            <form method="POST" action="{% url 'add_specials' %}" name="form">
+            <form method="POST" name="form" enctype="multipart/form-data">
 
                 {{ form | crispy }}
 
