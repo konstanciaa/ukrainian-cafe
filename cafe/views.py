@@ -61,6 +61,22 @@ def edit_specials(request, special_id):
 
 
 @login_required
+def delete_specials(request, special_id):
+    item = get_object_or_404(Booking, id=special_id)
+    if request.method == "POST":
+        form = SpecialsForm(request.POST, instance=item)
+        if item.delete():
+            messages.success(request, 'The item has been deleted.')
+            return redirect('today_specials')
+
+    form = SpecialsForm(instance=item)
+    context = {
+        'form': form
+    }
+    return render(request, 'delete_specials.html', context)
+
+
+@login_required
 def add_booking(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
