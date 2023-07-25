@@ -34,6 +34,16 @@ def add_specials(request):
 
 
 @login_required
+def view_specials(request):
+    if request.user.is_superuser:
+        specials = Specials.objects.all()
+        context = {
+            'specials': specials
+        }
+        return render(request, 'view_specials.html', context)
+
+
+@login_required
 def add_booking(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
