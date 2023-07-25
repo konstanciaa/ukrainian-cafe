@@ -62,7 +62,7 @@ def edit_specials(request, special_id):
 
 @login_required
 def delete_specials(request, special_id):
-    item = get_object_or_404(Booking, id=special_id)
+    item = get_object_or_404(Specials, id=special_id)
     if request.method == "POST":
         form = SpecialsForm(request.POST, instance=item)
         if item.delete():

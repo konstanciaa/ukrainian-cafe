@@ -13,4 +13,5 @@ urlpatterns = [
     path('today_specials/', views.view_specials, name='today_specials'),
     path('add_specials/', views.add_specials, name='add_specials'),
     path('edit_specials/<special_id>', views.edit_specials, name='edit_specials'),
+    path('delete_specials/<special_id>', views.delete_specials, name='delete_specials'),
 ]
