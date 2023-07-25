@@ -4,15 +4,6 @@ from .models import Booking, Specials
 from django_summernote.admin import SummernoteModelAdmin
 
 
-# Customers
-# @admin.register(Customer)
-# class CustomerAdmin(SummernoteModelAdmin):
-
-#     list_display = ('user', 'first_name', 'last_name', 'phone',
-#                     'email')
-#     search_fields = ['user',  'phone', 'email', 'last_name']
-
-
 # Bookings
 @admin.register(Booking)
 class BookingAdmin(ModelAdmin):
@@ -22,10 +13,6 @@ class BookingAdmin(ModelAdmin):
     search_fields = ['first_name', 'last_name', 'booking_date', 'time',
                      'phone']
     list_filter = ('last_name', 'booking_date', 'time')
-    # actions = ['confirm_booking']
-
-    # def confirm_booking(self, request, queryset):
-    #     queryset.update(confirmed=True)
 
 
 # Specials

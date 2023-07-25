@@ -3,5 +3,40 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
+<div class="container">
+    <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'add_specials' %}">Add Specials</a>
+</div>
+<div class="table-responsive-sm">
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Today</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for special in specials %}
+
+            <tr>
+                <th scope="row"></th>
+                <td>{{ special.title }}</td>
+                <td>{{ special.description }}</td>
+                <td>{{ special.today }}</td>
+                <td>
+                    <div><a class="btn btn-primary" href="/edit/{{ special.id }}">Edit</a></div>
+                </td>
+                <td>
+                    <div><a class="btn btn-primary btn-danger" href="/delete/{{ special.id }}">Delete</a></div>
+                </td>
+            </tr>
+        </tbody>
+            {% endfor %}
+            {% csrf_token %}
+    </table>
+</div>
 
 {% endblock content %}

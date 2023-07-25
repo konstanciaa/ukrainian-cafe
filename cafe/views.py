@@ -24,7 +24,7 @@ def add_specials(request):
                 messages.success(request, 'You have successfully added a new item.')
             else:
                 print(form.errors)
-            return redirect('view_specials')
+            return redirect('today_specials')
 
         form = SpecialsForm()
         context = {
@@ -40,7 +40,7 @@ def view_specials(request):
         context = {
             'specials': specials
         }
-        return render(request, 'view_specials.html', context)
+        return render(request, 'today_specials.html', context)
 
 
 @login_required
