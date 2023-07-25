@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 
 class SpecialsView(generic.ListView):
     model = Specials
-    queryset = Specials.objects.filter(today=True)
+    queryset = Specials.objects.filter(today="yes")
     template_name = 'index.html'
 
 
@@ -44,16 +44,16 @@ def view_specials(request):
 
 
 @login_required
-def edit_specials(request, specials_id):
-    special = get_object_or_404(Specials, id=specials_id)
+def edit_specials(request, special_id):
+    item = get_object_or_404(Specials, id=special_id)
     if request.method == "POST":
-        form = SpecialsForm(request.POST, instance=special)
+        form = SpecialsForm(request.POST, instance=item)
         if form.is_valid():
             specials = form.save()
             specials.save()
             messages.success(request, 'An item has been updated.')
         return redirect('today_specials')
-    form = SpecialsForm(instance=special)
+    form = SpecialsForm(instance=item)
     context = {
         'form': form
     }

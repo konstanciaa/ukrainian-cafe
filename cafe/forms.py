@@ -31,7 +31,7 @@ class BookingForm(forms.ModelForm):
 class SpecialsForm(forms.ModelForm):
     class Meta:
         model = Specials
-        fields = ('title', 'description', 'image')
+        fields = ('title', 'description', 'image', 'today')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -41,3 +41,4 @@ class SpecialsForm(forms.ModelForm):
     title = forms.CharField(max_length=50)
     description = forms.CharField(max_length=200)
     image = forms.ImageField()
+    today = forms.CharField(required=False, max_length=5)

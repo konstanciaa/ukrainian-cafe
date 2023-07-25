@@ -13,7 +13,7 @@ class Specials(models.Model):
     slug = models.SlugField(unique=True, null=True)
     description = models.TextField(max_length=200)
     image = CloudinaryField('image', default='placeholder')
-    today = models.BooleanField(default=True)
+    today = models.CharField(max_length=5)
 
     def __str__(self):
         return self.title

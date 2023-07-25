@@ -8,6 +8,8 @@
     <div class="row">
         <h3 class="text-center heading-space">Today's Specials</h3>
         <p class="text-center">Please use the below form to add new items to Today's Specials.</p>
+        <p class="text-center text-muted">In "Today" type please "yes" or "no"</p>
+        <p class="text-center"><a href="{% url 'today_specials' %}">Tap here</a> if you don't want to add any item.</p>
         <div class="col-md-8 mt-3 offset-md-2">
 
             <form method="POST" name="form" enctype="multipart/form-data">
