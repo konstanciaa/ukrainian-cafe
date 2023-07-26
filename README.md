@@ -2,8 +2,7 @@
 
 [View the live project here.](https://ukrainian-cafe-f4f96fd63fc0.herokuapp.com/)
 
-The Ukrainian Cafe website is made for a cafe. This website shows today's specials, menu, contact information, and opening hours. Potential customers can register and book a table online using a form on the "Booking" page of the website. 
-Users are able to view pages like the home page, menu and the contact page, also to create an account, sign in, make a booking and view bookings, which unregistered users don't have access to. Through the booking and the view booking navbar link users can access their bookings, edit and delete them. Site user administrators have access to all bookings and all create, edit and delete functionalities.
+The Ukrainian Cafe website is made for a cafe. This website shows today's specials, menu, contact information, and opening hours. Potential customers can register and book a table online using a form on the "Booking" page of the website. Registered users can view, edit and delete their bookings. Site user administrators have access to all bookings and all create, edit and delete functionalities. Administrators are also able to update today's specials list by adding new items, updating or deleting existing ones.
 
 The website is designed to be responsible on a range of devices.
 
@@ -24,6 +23,57 @@ The website is designed to be responsible on a range of devices.
  11. [ Acknowledgements](#acknowledgements)
 
 ## User Experience (UX)
+<a name="ux"></a>
+
+#### Database Schema
+
+##### Booking Model
+
+| id | Field |
+|--|--|
+| user | FK |
+| first_name | CharField |
+| last_name | CharField |
+| phone | CharField |
+| email | EmailField |
+| booking_date | DateField |
+| time | CharField |
+| guests | IntegerField |
+
+---
+
+##### Today's Specials Model
+
+| id | Model |
+|--|--|
+| title | CharField |
+| slug | SlugField |
+| description | TextField |
+| image | CloudinaryField |
+| today | CharField |
+
+### User Experience Design (UXD)
+
+#### Overview
+Ukrainian Cafe is a website for a fictional cafe. The main goal of the website is to allow users to book a table online, to see menu and today's specials, also to get contact information and opening hours.
+
+#### Design
+When I came up with the idea to create a website for a ukrainian cafe, I decided to make a simple intuitive landing page. I wanted to make it look modern, so I used modern ukrainian food photos. The colors are warm, buttons and logo are yellow to give a feeling of coziness.
+
+#### Site User
+- Someone who is originally ukrainian wants to visit a place with ukrainian food.
+- Someone looking for a new experience, wanting to try new dishes.
+- Someone who prefers to make online booking rather than making a phone call.
+
+#### Goals for the website
+- To allow customers to get acquainted with the menu.
+- To allow customers to see relevant information on today's specials.
+- To allow customers to make online bookings, to view, update, and delete them if necessary.
+- To allow cafe administrators to view all bookings, update and delete them if necessary.
+- To allow cafe administrators to update today's specials list.
+
+### Wireframes
+
 
 ## Agile Development
 
