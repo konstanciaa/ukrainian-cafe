@@ -73,6 +73,21 @@ When I came up with the idea to create a website for a ukrainian cafe, I decided
 - To allow cafe administrators to update today's specials list.
 
 ### Wireframes
+index.html
+
+![index.html wireframe](static/assets/docs/index.jpg)
+
+login.html
+
+![login.html wireframe](static/assets/docs/signin.jpg)
+
+add_booking.html
+
+![add_booking.html wireframe](static/assets/docs/booking.jpg)
+
+view_booking.html
+
+![view_booking.html wireframe](static/assets/docs/view_bookings.jpg)
 
 
 ## Agile Development
@@ -82,6 +97,7 @@ When I came up with the idea to create a website for a ukrainian cafe, I decided
 ## Future features
 
 ## Technology used
+Miro - Wireframes
 
 ## Testing
 
