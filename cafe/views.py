@@ -184,7 +184,7 @@ def delete_booking(request, booking_id):
 
 def handler404(request, *args, **argv):
     """
-    Customize 404 error page if booking is not found.
+    Customizes 404 error page if booking is not found.
     """
     form = BookingForm()
     context = {
@@ -192,4 +192,17 @@ def handler404(request, *args, **argv):
         }
     response = render(request, 'not_found.html', context)
     response.status_code = 404
+    return response
+
+
+def handler500(request, *args, **argv):
+    """
+    Customizes 404 error page if booking is duplicate.
+    """
+    bookings = Booking.objects.all()
+    context = {
+        'bookings': bookings
+    }
+    response = render(request, 'duplicate_booking.html', context)
+    response.status_code = 500
     return response
