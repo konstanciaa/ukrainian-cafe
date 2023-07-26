@@ -142,3 +142,16 @@ def delete_booking(request, booking_id):
         'form': form
     }
     return render(request, 'delete_booking.html', context)
+
+
+def handler404(request, *args, **argv):
+    """
+    Customize 404 error page if booking is not found.
+    """
+    form = BookingForm()
+    context = {
+        'form': form
+        }
+    response = render(request, 'not_found.html', context)
+    response.status_code = 404
+    return response
