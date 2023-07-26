@@ -7,7 +7,7 @@ Users are able to view pages like the home page, menu and the contact page, also
 
 The website is designed to be responsible on a range of devices.
 
-![Am I responsive screenshot]()
+![Am I responsive screenshot](static/assets/docs/responsive.jpg)
 
 
 ## Table of contents
