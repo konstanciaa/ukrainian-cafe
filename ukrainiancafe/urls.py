@@ -24,3 +24,4 @@ urlpatterns = [
 ]
 
 handler404 = 'cafe.views.handler404'
+handler500 = 'cafe.views.handler500'
