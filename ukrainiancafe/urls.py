@@ -22,3 +22,5 @@ urlpatterns = [
     path('', include('cafe.urls'), name='cafe_urls'),
     path('accounts/', include('allauth.urls')),
 ]
+
+handler404 = 'cafe.views.handler404'
