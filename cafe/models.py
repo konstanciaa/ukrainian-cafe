@@ -9,6 +9,11 @@ import datetime
 
 # Today's Specials model
 class Specials(models.Model):
+    """
+    Class to represent specials model in database and for
+    today's specials form. Individual fields are specials components.
+    Contents in field parentheses represent restrictions.
+    """
     title = models.CharField(max_length=50)
     slug = models.SlugField(unique=True, null=True)
     description = models.TextField(max_length=200)
@@ -19,7 +24,13 @@ class Specials(models.Model):
         return self.title
 
 
+# Booking model
 class Booking(models.Model):
+    """
+    Class to represent booking model in database and for
+    booking form. Individual fields are booking components.
+    Contents in field parentheses represent restrictions.
+    """
     user = models.ForeignKey(User, null=True, blank=True,
                                 on_delete=models.CASCADE)
     first_name = models.CharField(max_length=30, null=True)
@@ -29,6 +40,10 @@ class Booking(models.Model):
     booking_date = models.DateField(null=True, blank=True)
 
     def validate_date(booking_date):
+        """
+        Validate date so that booking date
+        is not in the past.
+        """
         if booking_date < datetime.date.today():
             raise ValidationError("Date cannot be in the past")
     booking_date = models.DateField(null=True, blank=True,
@@ -39,10 +54,19 @@ class Booking(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('user', 'first_name', 'last_name', 'booking_date', 'time')
+        """
+        Class container with metadata
+        attached to the model.
+        """
+        unique_together = ('user', 'first_name', 'last_name',
+                            'booking_date', 'time')
         ordering = ["-created_on"]
 
     def __str__(self):
+        """
+        Function to return object model
+        items as string.
+        """
         return f' User {self.user} has made a booking \
                     for {self.first_name} {self.last_name} \
                     for {self.guests} people \

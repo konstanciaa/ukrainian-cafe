@@ -8,6 +8,9 @@ from cloudinary.models import CloudinaryField
 
 
 class BookingForm(forms.ModelForm):
+    """
+    Class to create booking form for booking model
+    """
     class Meta:
         model = Booking
         fields = ('first_name', 'last_name', 'phone', 'email',
@@ -29,6 +32,9 @@ class BookingForm(forms.ModelForm):
 
 
 class SpecialsForm(forms.ModelForm):
+    """
+    Class to create today's specials form for specials model
+    """
     class Meta:
         model = Specials
         fields = ('title', 'description', 'image', 'today')

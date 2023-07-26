@@ -1,3 +1,6 @@
+"""
+Views to create application logic.
+"""
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
 from .models import Booking, Specials
@@ -8,6 +11,9 @@ from django.contrib.auth.decorators import login_required
 
 
 class SpecialsView(generic.ListView):
+    """
+    Creates view for today's specials on the home page
+    """
     model = Specials
     queryset = Specials.objects.filter(today="yes")
     template_name = 'index.html'
@@ -15,6 +21,10 @@ class SpecialsView(generic.ListView):
 
 @login_required
 def add_specials(request):
+    """
+    Enables superuser to add new items to
+    today's specials database.
+    """
     if request.user.is_superuser:
         if request.method == 'POST':
             form = SpecialsForm(request.POST, request.FILES)
@@ -35,6 +45,10 @@ def add_specials(request):
 
 @login_required
 def view_specials(request):
+    """
+    Enables superuser to view all items in
+    today's specials database.
+    """
     if request.user.is_superuser:
         specials = Specials.objects.all()
         context = {
@@ -45,6 +59,10 @@ def view_specials(request):
 
 @login_required
 def edit_specials(request, special_id):
+    """
+    Enables superuser to edit items in
+    today's specials database.
+    """
     item = get_object_or_404(Specials, id=special_id)
     if request.method == "POST":
         form = SpecialsForm(request.POST, instance=item)
@@ -62,6 +80,10 @@ def edit_specials(request, special_id):
 
 @login_required
 def delete_specials(request, special_id):
+    """
+    Enables superuser to delete items in
+    today's specials database.
+    """
     item = get_object_or_404(Specials, id=special_id)
     if request.method == "POST":
         form = SpecialsForm(request.POST, instance=item)
@@ -78,6 +100,10 @@ def delete_specials(request, special_id):
 
 @login_required
 def add_booking(request):
+    """
+    Enables user to make a booking
+    and add it to the database.
+    """
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
@@ -97,6 +123,10 @@ def add_booking(request):
 
 @login_required
 def view_booking(request):
+    """
+    Enables user to view a booking after
+    it has been made and added to the database.
+    """
     bookings = Booking.objects.filter(user__in=[request.user])
     context = {
         'bookings': bookings
@@ -112,6 +142,10 @@ def view_booking(request):
 
 @login_required
 def edit_booking(request, booking_id):
+    """
+    Enables user to edit a booking after
+    it has been made and added to the database.
+    """
     book = get_object_or_404(Booking, id=booking_id)
     if request.method == "POST":
         form = BookingForm(request.POST, instance=book)
@@ -130,6 +164,10 @@ def edit_booking(request, booking_id):
 
 @login_required
 def delete_booking(request, booking_id):
+    """
+    Enables user to delete a booking after
+    it has been made and added to the database.
+    """
     booking = get_object_or_404(Booking, id=booking_id)
     if request.method == "POST":
         form = BookingForm(request.POST, instance=booking)
