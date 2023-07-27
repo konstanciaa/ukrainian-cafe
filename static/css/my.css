@@ -1,0 +1,19 @@
+header.masthead {
+    padding-top: 10.5rem;
+    padding-bottom: 6rem;
+    text-align: center;
+    color: #fff;
+    background-image: url("https://res.cloudinary.com/konstanciaa/image/upload/v1690285779/static/assets/img/hero-image.647ab80927ca.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+}
+
+.prefooter {
+    background-color: #212529;
+    background-image: url("https://res.cloudinary.com/konstanciaa/image/upload/v1690285779/static/assets/img/hero-image.647ab80927ca.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fff;
+}
