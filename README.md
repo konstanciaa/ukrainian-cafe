@@ -176,34 +176,68 @@ The application is responsive on all device sizes, thanks to the Boostrap theme.
 
 ### Home Page
 
-##### Navigation
+#### Navigation
 ![navbar screenshot](static/assets/docs/navbar.jpg)
 
-##### The hero image section
+- The navigation is located at the top of the page. It shows the cafe name in the left corner: UKRAINIAN CAFE that links to home page.
+- The navigation is in an appealing bright yellow color that contrasts with the background and clearly shows the name of the cafe.
+- The other navigation links are to the right: Today's Specials, Menu, Contact Us, Booking, Login which link to different sections and pages of the website.
+
+#### The hero image section
+- The hero image section displays a photo of one the drinks from cafe menu.
+- The image also contains welcoming words.
+- The big yellow button calls to action: to book a table.
+- After clicking the button, unregistered users are being redirected to sign in page where they can either sign up or login.
+
 ![hero image screenshot](static/assets/docs/header.jpg)
 
-##### Today's Specials
+#### Today's Specials
 ![today's specials screenshot](static/assets/docs/today-specials.jpg)
 
-##### Menu
+- The Today's Specials section contains relevant information about specials for a certain day.
+- This section is being updated by business owner.
+
+#### Menu
 ![first menu screenshot](static/assets/docs/menu-one.jpg)
 ![second menu screenshot](static/assets/docs/menu-two.jpg)
+
+- Menu contains six sections: Appetizers, Soups, Main Dishes, Desserts, Drinks (Alcohol), Drinks (Non-Alcohol).
+
 ![third menu screenshot](static/assets/docs/menu-three.jpg)
+
+- Each section is clickable and contains more detailed menu.
+
 ![menu details screenshot](static/assets/docs/menu-four.jpg)
 
-##### Contact Us
+#### Contact Us
+- Contact Us section displays information about opening hours, address, phone number, and email.
+
 ![contact screenshot](static/assets/docs/contact.jpg)
 
-##### Footer
+#### Footer
+- Just below Contact section customers can see another "Book a Table" button. That is very convenient. Users don't have to scroll back to the top.
+
 ![footer screenshot](static/assets/docs/footer.jpg)
 
 ### Login Page
 ![sign in page screenshot](static/assets/docs/login.jpg)
 
+- Login page is very simple and functional.
+- It gives opportunity to sign in or to go to sign up page if a user is not registered yet.
+- After filling out username and password, user is being redirected to Home page.
+- When logged in, users can see their bookings, make changes to them.
+
 ### Booking Page
 ![booking form screenshot](static/assets/docs/booking-form.jpg)
 
+- When logged in users click "Book a Table" button, they are being redirected to Booking page where they can see the Booking form.
+- Booking form contains fields: First name, Last name, Phone, Email, Booking date, Time, Guests.
+- After filling out the form and clicking "Book" button, booking is made.
+
 ### My Bookings
+- Logged in users can view their bookings and make changes: edit or delete.
+- Business owner can see all bookings and make changes to them.
+
 ![view bookings screenshot](static/assets/docs/my-bookings.jpg)
 
 ### Today's Specials page (access for business owner only)
