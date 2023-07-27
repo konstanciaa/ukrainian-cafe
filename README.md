@@ -268,6 +268,7 @@ The application is responsive on all device sizes, thanks to the Boostrap theme.
 - Business owner can add, edit, or delete menu items.
 - Customers can oder main dishes in advance, right after their booking was confirmed to reduce waiting time. For example, business lunch.
 - Improve responsiveness of tables on medium and small screens.
+- Users can sign up with social media.
 
 <a name="tech"></a>
 
@@ -293,13 +294,68 @@ The application is responsive on all device sizes, thanks to the Boostrap theme.
 
 ## Testing
 
+The W3C Markup Validator and W3C CSS Validator Services were used to validate  HTML and CSS of the project to ensure there were no syntax errors in the project. I used the inbuilt pylint to validate the Python files.
 
-Validator
+[Validation and Google Lighthouse results](https://github.com/konstanciaa/ukrainian-cafe/tree/main/static/assets/docs/validation)
 
-HTML Validation
+#### Manual Testing
 
-CSS Validation
-I validated by text input my custom CSS code I wrote Bootstrap CSS file
+Each user story was manually tested in line with intended functionality on both desktop & mobile. As this project was driven by my own User Stories I  felt manual testing was applicable on all logic code. If the intended outcome completes then this will be flagged as pass. If it does not then this is a fail.
+
+#### Account Registration Tests
+| Test |Result  |
+|--|--|
+| User can register on the website | Pass |
+| User can log into account| Pass|
+|User can log out of account|Pass|
+
+#### User Navigation Tests
+
+| Test |Result  |
+|--|--|
+|User can navigate to Today's Special section on the home page | Pass |
+|User can navigate to Menu section on the home page | Pass |
+|User can navigate to Contact Us section on the home page | Pass |
+|Unregistered user can click "Book a Table" to be redirected to log in page | Pass |
+|Logged in user can click "Book a Table" to be redirected to Add Booking page | Pass |
+|Logged in user can navigate to My Bookings | Pass |
+|Supruser can access Today's Specials page| Pass|
+|Supruser can access Bookings | Pass|
+|SuperUser can access admin panel|Pass|
+
+#### Account Security Tests
+
+| Test |Result  |
+|--|--|
+|Non logged in user cannot make a booking | Pass |
+|Non logged in user cannot access bookings page| Pass|
+|Non superuser cannot view all users bookings |Pass|
+|Non superuser cannot access Today's Specials page |Pass|
+|Non superuser cannot access admin panel|Pass|
+
+#### Booking Tests
+
+| Test |Result  |
+|--|--|
+|User can make a booking when all fields complete | Pass |
+|User tries to submit booking with empty form |Fail|
+|User tries to submit form without email address| Fail|
+|User tries to submit form without phone number | Fail|
+|User can view their bookings on My Bookings page |Pass|
+|User can edit their booking | Pass|
+|User can delete their booking | Pass|
+|Business owner can view all bookings | Pass |
+|Business owner can edit all bookings | Pass |
+|Business owner can delete all bookings | Pass |
+
+#### Specials Tests
+
+| Test |Result  |
+|--|--|
+|Business owner can add items to specials|Pass|
+|Business owner can add a new item with title, description and image in "Add Specials" form |Pass|
+|Business owner can edit items in specials|Pass|
+|Business owner can delete items in specials|Pass|
 
 <a name="bugs"></a>
 
