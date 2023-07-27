@@ -18,39 +18,11 @@ The website is designed to be responsible on a range of devices.
  6. [ Testing ](#testing)  
  7. [ Bugs ](#bugs)  
  8. [ Deployment](#deployment)
- 9. [ Credits](#credits)
- 10. [ Content](#content)  
- 11. [ Acknowledgements](#acknowledgements)
+ 9. [ Credits](#credits)  
+ 10. [ Acknowledgements](#acknowledgements)
 
 ## User Experience (UX)
 <a name="ux"></a>
-
-#### Database Schema
-
-##### Booking Model
-
-| id | Field |
-|--|--|
-| user | FK |
-| first_name | CharField |
-| last_name | CharField |
-| phone | CharField |
-| email | EmailField |
-| booking_date | DateField |
-| time | CharField |
-| guests | IntegerField |
-
----
-
-##### Today's Specials Model
-
-| id | Model |
-|--|--|
-| title | CharField |
-| slug | SlugField |
-| description | TextField |
-| image | CloudinaryField |
-| today | CharField |
 
 ### User Experience Design (UXD)
 
@@ -128,6 +100,33 @@ Click on a user story to see the details.
 3. [USER STORY: Order meals](https://github.com/konstanciaa/ukrainian-cafe/issues/11)
 4. [USER STORY: Photos of each dish](https://github.com/konstanciaa/ukrainian-cafe/issues/12)
 5. [USER STORY: Confirm booking](https://github.com/konstanciaa/ukrainian-cafe/issues/13)
+
+### Database Schema
+
+##### Booking Model
+
+| id | Field |
+|--|--|
+| user | FK |
+| first_name | CharField |
+| last_name | CharField |
+| phone | CharField |
+| email | EmailField |
+| booking_date | DateField |
+| time | CharField |
+| guests | IntegerField |
+
+---
+
+##### Today's Specials Model
+
+| id | Model |
+|--|--|
+| title | CharField |
+| slug | SlugField |
+| description | TextField |
+| image | CloudinaryField |
+| today | CharField |
 
 ---
 
@@ -245,12 +244,28 @@ To deploy the project through Heroku I followed these steps:
 By forking the GitHub Repository you can make a copy of the original repository to view or change without it effecting the original repository. You can do this by:
 
 - Sign up / Log in to GitHub.
-- Locate
+- Locate the repository [here](https://github.com/konstanciaa/ukrainian-cafe).
+- At the top of the repository, on the right side of the page, select "Fork" from the buttons available.
+- A copy of the repository should now be created in your own repository.
+
+#### Create a clone of this repository
+
+Creating a clone enables you to make a copy of the repository at that point in time - this lets you run a copy of the project locally.
+
+This can be done by:
+
+- Navigate to [https://github.com/konstanciaa/ukrainian-cafe](https://github.com/konstanciaa/ukrainian-cafe).
+- Click on the arrow on the green code button at the top of the list of files.
+- Select the clone by https option and copy the URL it provides to the clipboard.
+- Navigate to your code editor of choice and within the terminal change the directory to the location you want to clone the repository to.
+- Type 'git clone' and paste the https link you copied from github.
+- Press enter and git will clone the repository to your local machine.
+
+<a name="credits"></a>
+
+## Credits
 
 
----
-
-Happy coding!
 
 **Media**
 Photo: [name of the photographer], [name of the organization/company that donated the image or the photo] / ukraine.ua/imagebank
@@ -276,6 +291,30 @@ Traditional kvass beer mug with rye bread on wooden table - photo: etorres69 - D
 
 Field of the green wheat near Kitsman, Chernivtsi region - photo: Max Kozmenko
 
+  
+##### Django Documentation
+  - Read through the django documentation multiple times when trying to implement models and other content.
+  
+##### Bootstrap Documentation
+  - Used for reference throughout css styles.
+  
+##### Code Institute
+  - Course content for portfolio project 4 helped greatly in being able to complete this project.
+  - I found the walkthroughs informative and well paced.
+  - Initial structure based heavily on the CI walkthrough until I got more comfortable with the framework and started to make it my own.
+
+##### Alan Bushell and Renata Lantos
+Both [Alan Bushell's](https://github.com/Alan-Bushell/la-cocina-del-diablo/) and [Renata Lantos's](https://github.com/renatalantos/booking-system/) projects helped me to understand how to implement booking system model and form in my project.
+
+<a name="acknowlegements"></a>
+
+## Acknowledgements
+
+#### Brian O'Hare
+My mentor who provided me with constructive feedback  and guidance throughout the project.
+
+#### The tutors at Code institute
+To all the tutors in CI, thank you for your help. Special shout outs to Kevin, Sean, Oisin, Alan.
 
 **Bugs**
 1. When I upload an image in "Add Specials" form, the image won't show up. 
