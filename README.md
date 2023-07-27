@@ -32,6 +32,8 @@ Ukrainian Cafe is a website for a fictional cafe. The main goal of the website i
 #### Design
 When I came up with the idea to create a website for a ukrainian cafe, I decided to make a simple intuitive landing page. I wanted to make it look modern, so I used modern ukrainian food photos. The colors are warm, buttons and logo are yellow to give a feeling of coziness.
 
+I used a standard Bootstrap theme with all the components and styling. Montserrat and Roboto are the main fonts used.
+
 #### Site User
 - Someone who is originally ukrainian wants to visit a place with ukrainian food.
 - Someone looking for a new experience, wanting to try new dishes.
@@ -116,7 +118,6 @@ Click on a user story to see the details.
 | time | CharField |
 | guests | IntegerField |
 
----
 
 ##### Today's Specials Model
 
@@ -128,10 +129,10 @@ Click on a user story to see the details.
 | image | CloudinaryField |
 | today | CharField |
 
----
+
+<a name="features"></a>
 
 ## Features
-<a name="features"></a>
 
 #### User based Features Implemented
 
@@ -160,17 +161,63 @@ Click on a user story to see the details.
 
 ### Website Features
 
+#### Responsive
+
+The application is responsive on all device sizes, thanks to the Boostrap theme. In mobile view there is a collapsible menu icon. All images, text labels, forms get appropriately resized. There is an exception, however: when bookings are displayed in the database table in the view_booking.html, on mobile phone screens in portrait mode there is not enough room for all columns to be shown. However, Bootstrap adds a slide bar so that user can slide the page content from left to right.
+
 #### Today's Specials
-- The home page displays 
+- The home page displays three Today's Specials items that can be updated by business owner.
 
 #### Booking system
 
+- Once a user has registered they can make a booking using booking form.
+- Users can view, edit and delete their bookings.
+- Business owner can see all bookings and make changes to them.
 
-## Future features
+### Home Page
+
+##### Navigation
+![navbar screenshot](static/assets/docs/navbar.jpg)
+
+##### The hero image section
+![hero image screenshot](static/assets/docs/header.jpg)
+
+##### Today's Specials
+![today's specials screenshot](static/assets/docs/today-specials.jpg)
+
+##### Menu
+![first menu screenshot](static/assets/docs/menu-one.jpg)
+![second menu screenshot](static/assets/docs/menu-two.jpg)
+![third menu screenshot](static/assets/docs/menu-three.jpg)
+![menu details screenshot](static/assets/docs/menu-four.jpg)
+
+##### Contact Us
+![contact screenshot](static/assets/docs/contact.jpg)
+
+##### Footer
+![footer screenshot](static/assets/docs/footer.jpg)
+
+### Login Page
+![sign in page screenshot](static/assets/docs/login.jpg)
+
+### Booking Page
+![booking form screenshot](static/assets/docs/booking-form.jpg)
+
+### My Bookings
+![view bookings screenshot](static/assets/docs/my-bookings.jpg)
+
+### Today's Specials page (access for business owner only)
+![today's specails table screenshot](static/assets/docs/specials.jpg)
+
+
 <a name="future"></a>
 
-## Technology used
+## Future features
+
+
 <a name="tech"></a>
+
+## Technology used
 
 - **HTML**
 - **CSS**
@@ -188,7 +235,36 @@ Click on a user story to see the details.
 - **Miro** was used to create wireframes.
 
 
+<a name="testing"></a>
+
 ## Testing
+
+<a name="bugs"></a>
+
+## Bugs
+
+1. When I upload an image in "Add Specials" form, the image won't show up. 
+
+Solution: I had to retrieve request.FILES in the view:
+```
+form = SpecialsForm(request.POST, request.FILES)
+```
+and add the following enctype to the form in html file:
+```
+<form method="POST" name="form" enctype="multipart/form-data"></form>
+```
+
+
+2. Booking form not rendering in html. 
+
+I found solution on [stackoverflow.com](https://stackoverflow.com/questions/75495403/django-returns-templatedoesnotexist-when-using-crispy-forms) 
+
+It says: "inside settings.py in the main app add INSTALLED_APPS = [ ... 'crispy_forms', 'crispy_bootstrap4', ... ] and CRISPY_TEMPLATE_PACK = 'bootstrap4'." 
+
+I applied that tip. The booking form is now displayed on add_booking.html.
+
+
+<a name="deployment"></a>
 
 ## Deployment
 
@@ -265,31 +341,27 @@ This can be done by:
 
 ## Credits
 
-
-
 **Media**
-Photo: [name of the photographer], [name of the organization/company that donated the image or the photo] / ukraine.ua/imagebank
-Traditional Ukrainian borscht - photo: Yevhen Kudriavtsev
 
-Fried dumplings with onion and bacon top view - photo: nioloxs - Depositphotos (три вареника)
+Photos: all images are taken from [https://ukraine.ua/imagebank/](https://ukraine.ua/imagebank/)
 
-Spotykach. Liqueur made of berries or fruits - photo:  - klopotenko.com (ликер на темном фоне)
+- Header image: Spotykach. Liqueur made of berries or fruits - photo:  - klopotenko.com / ukraine.ua/imagebank
 
-Borscht with prunes and porcini mushrooms - photo:  - klopotenko.com (борщ в правом углу на сером фоне)
+- Traditional Ukrainian borscht - photo: Yevhen Kudriavtsev / ukraine.ua/imagebank
 
-Ukrainian varenyky with potatoes and onion - photo: Yevhen Kudriavtsev (варениеи картошкойб цибулей и салом)
+- Fried dumplings with onion and bacon top view - photo: nioloxs - Depositphotos / ukraine.ua/imagebank
 
-Lard with spices and herbs on a old wooden table - photo: igorr1 - Depositphotos (salo vertical)
+- Borscht with prunes and porcini mushrooms - photo:  - klopotenko.com / ukraine.ua/imagebank
 
-Borscht is a beetroot soup that has over 70 recipes. Usually served with garlic fritters called pampushky. It is included on the list of the Ukrainian intangible heritage - photo: Oksana Sybydlo Food Photographer / їzhakultura - Ukrainian Institute (борщ в треугольной тарелке)
+- Ukrainian varenyky with potatoes and onion - photo: Yevhen Kudriavtsev / ukraine.ua/imagebank
 
-Delicious Chicken Kyiv and mashed potato served on plate on wooden table - photo: AntonMatyukha - Depositphotos (chicken Kyiv)
+- Lard with spices and herbs on a old wooden table - photo: igorr1 - Depositphotos / ukraine.ua/imagebank
 
-Spotykach. Liqueur made of berries or fruits - photo:  - klopotenko.com
+- Borscht is a beetroot soup that has over 70 recipes. Usually served with garlic fritters called pampushky. It is included on the list of the Ukrainian intangible heritage - photo: Oksana Sybydlo Food Photographer / їzhakultura - Ukrainian Institute / ukraine.ua/imagebank
 
-Traditional kvass beer mug with rye bread on wooden table - photo: etorres69 - Depositphotos
+- Delicious Chicken Kyiv and mashed potato served on plate on wooden table - photo: AntonMatyukha - Depositphotos / ukraine.ua/imagebank
 
-Field of the green wheat near Kitsman, Chernivtsi region - photo: Max Kozmenko
+- Traditional kvass beer mug with rye bread on wooden table - photo: etorres69 - Depositphotos / ukraine.ua/imagebank
 
   
 ##### Django Documentation
@@ -297,6 +369,7 @@ Field of the green wheat near Kitsman, Chernivtsi region - photo: Max Kozmenko
   
 ##### Bootstrap Documentation
   - Used for reference throughout css styles.
+  - [Bootstrap5 Template:](https://startbootstrap.com/theme/agency) Bootstrap Theme used throughout the project to style pages and make site responsive.
   
 ##### Code Institute
   - Course content for portfolio project 4 helped greatly in being able to complete this project.
@@ -305,6 +378,8 @@ Field of the green wheat near Kitsman, Chernivtsi region - photo: Max Kozmenko
 
 ##### Alan Bushell and Renata Lantos
 Both [Alan Bushell's](https://github.com/Alan-Bushell/la-cocina-del-diablo/) and [Renata Lantos's](https://github.com/renatalantos/booking-system/) projects helped me to understand how to implement booking system model and form in my project.
+
+> Code for hiding links in navbar was taken from [Stackoverflow](https://stackoverflow.com/questions/73859088/is-there-a-way-in-django-to-mask-link-in-navbar-according-to-the-loaded-template)
 
 <a name="acknowlegements"></a>
 
@@ -316,23 +391,3 @@ My mentor who provided me with constructive feedback  and guidance throughout th
 #### The tutors at Code institute
 To all the tutors in CI, thank you for your help. Special shout outs to Kevin, Sean, Oisin, Alan.
 
-**Bugs**
-1. When I upload an image in "Add Specials" form, the image won't show up. 
-
-Solution: I had to retrieve request.FILES in the view:
-```
-form = SpecialsForm(request.POST, request.FILES)
-```
-and add the following enctype to the form in html file:
-```
-<form method="POST" name="form" enctype="multipart/form-data"></form>
-```
-
-
-2. Booking form not rendering in html. 
-
-I found solution on [stackoverflow.com](https://stackoverflow.com/questions/75495403/django-returns-templatedoesnotexist-when-using-crispy-forms) 
-
-It says: "inside settings.py in the main app add INSTALLED_APPS = [ ... 'crispy_forms', 'crispy_bootstrap4', ... ] and CRISPY_TEMPLATE_PACK = 'bootstrap4'." 
-
-I applied that tip. The booking form is now displayed on add_booking.html.
