@@ -147,6 +147,7 @@ Click on a user story to see the details.
 #### User Restrictions
 - **Users cannot** access the booking form until they sign up or login
 - **Users cannot** see other users bookings
+- **Users cannot** access today's specials page with the list of dishes and make changes there.
 
 #### Business owner based Features implemented
 
@@ -194,7 +195,8 @@ The application is responsive on all device sizes, thanks to the Boostrap theme.
 #### Today's Specials
 ![today's specials screenshot](static/assets/docs/today-specials.jpg)
 
-- The Today's Specials section contains relevant information about specials for a certain day.
+- The Today's Specials section contains relevant information about specials for a certain day. 
+- It displays three dishes, their titles, descriptions and pictures.
 - This section is being updated by business owner.
 
 #### Menu
@@ -243,11 +245,29 @@ The application is responsive on all device sizes, thanks to the Boostrap theme.
 ### Today's Specials page (access for business owner only)
 ![today's specails table screenshot](static/assets/docs/specials.jpg)
 
+- Only Business owner has access to this page.
+- It contains a table with the items added by business owner.
+- Each item can be edited or deleted.
+- By typing "yes" in today's section, an item is being displayed for site users on home page.
+- By clicking "Add Specials" button business owner is being redirected to the add specials page with the corresponding form.
+
+### Add Today's Specials form (access for business owner only)
+![add today's specials form screenshot](static/assets/docs/add-specials.jpg)
+
+- Only Business owner has access to this page.
+- It contains form with the following fields: Title, Description, Image, Today.
+- By typing "yes" in today's section, an item is being displayed for site users on home page.
+- After clicking "Add" button, an item is added to the Today's Specials table.
 
 <a name="future"></a>
 
 ## Future features
 
+- Business owner can confirm or decline bookings to manage number of guests.
+- More detailed menu. Each dish with description, price and image.
+- Business owner can add, edit, or delete menu items.
+- Customers can oder main dishes in advance, right after their booking was confirmed to reduce waiting time. For example, business lunch.
+- Improve responsiveness of tables on medium and small screens.
 
 <a name="tech"></a>
 
