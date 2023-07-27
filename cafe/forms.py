@@ -13,8 +13,10 @@ class BookingForm(forms.ModelForm):
     """
     class Meta:
         model = Booking
-        fields = ('first_name', 'last_name', 'phone', 'email',
-                    'booking_date', 'time', 'guests')
+        fields = (
+                'first_name', 'last_name', 'phone', 'email',
+                'booking_date', 'time', 'guests'
+        )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -25,8 +27,9 @@ class BookingForm(forms.ModelForm):
     last_name = forms.CharField(max_length=50)
     phone = forms.CharField(max_length=15)
     email = forms.EmailField(required=True)
-    booking_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date',
-                            'min': datetime.now().date()}))
+    booking_date = forms.DateField(widget=forms.DateInput(
+                        attrs={'type': 'date', 'min': datetime.now().date()})
+                        )
     time = forms.CharField(max_length=5)
     guests = forms.IntegerField()
 

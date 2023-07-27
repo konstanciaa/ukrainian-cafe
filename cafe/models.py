@@ -31,26 +31,29 @@ class Booking(models.Model):
     booking form. Individual fields are booking components.
     Contents in field parentheses represent restrictions.
     """
-    user = models.ForeignKey(User, null=True, blank=True,
-                                on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        User, null=True, blank=True, on_delete=models.CASCADE
+        )
     first_name = models.CharField(max_length=30, null=True)
     last_name = models.CharField(max_length=50, null=True)
     phone = models.CharField(max_length=15, null=True)
     email = models.EmailField()
     booking_date = models.DateField(null=True, blank=True)
 
-    def validate_date(booking_date):
+    def validate_date(self, booking_date):
         """
         Validate date so that booking date
         is not in the past.
         """
         if booking_date < datetime.date.today():
             raise ValidationError("Date cannot be in the past")
-    booking_date = models.DateField(null=True, blank=True,
-                                        validators=[validate_date])
+    booking_date = models.DateField(
+        null=True, blank=True, validators=[validate_date]
+        )
     time = models.CharField(null=True, blank=True, max_length=5)
-    guests = models.PositiveIntegerField(null=True,
-                                            validators=[MinValueValidator(1)])
+    guests = models.PositiveIntegerField(
+        null=True, validators=[MinValueValidator(1)]
+        )
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -58,8 +61,9 @@ class Booking(models.Model):
         Class container with metadata
         attached to the model.
         """
-        unique_together = ('user', 'first_name', 'last_name',
-                            'booking_date', 'time')
+        unique_together = (
+            'user', 'first_name', 'last_name', 'booking_date', 'time'
+            )
         ordering = ["-created_on"]
 
     def __str__(self):

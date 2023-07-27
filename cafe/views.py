@@ -31,7 +31,9 @@ def add_specials(request):
             if form.is_valid():
                 specials = form.save()
                 specials.save()
-                messages.success(request, 'You have successfully added a new item.')
+                messages.success(
+                    request, 'You have successfully added a new item.'
+                    )
             else:
                 print(form.errors)
             return redirect('today_specials')
@@ -197,7 +199,7 @@ def handler404(request, *args, **argv):
 
 def handler500(request, *args, **argv):
     """
-    Customizes 404 error page if booking is duplicate.
+    Customizes 500 error page if booking is duplicate.
     """
     bookings = Booking.objects.all()
     context = {
