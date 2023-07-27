@@ -1,10 +1,15 @@
-from .models import Booking, Specials
+"""
+Form elements that will appear on booking and
+specials forms.
+Based on the Booking and Specials models.
+"""
+from datetime import datetime
 from django import forms
 from tempus_dominus.widgets import DateTimePicker
-from datetime import datetime
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from cloudinary.models import CloudinaryField
+from .models import Booking, Specials
 
 
 class BookingForm(forms.ModelForm):

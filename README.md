@@ -293,6 +293,14 @@ The application is responsive on all device sizes, thanks to the Boostrap theme.
 
 ## Testing
 
+
+Validator
+
+HTML Validation
+
+CSS Validation
+I validated by text input my custom CSS code I wrote Bootstrap CSS file
+
 <a name="bugs"></a>
 
 ## Bugs

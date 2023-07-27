@@ -1,7 +1,11 @@
+"""
+Representation of the booking and specials
+models in the admin interface.
+"""
 from django.contrib import admin
 from django.contrib.admin import ModelAdmin
-from .models import Booking, Specials
 from django_summernote.admin import SummernoteModelAdmin
+from .models import Booking, Specials
 
 
 @admin.register(Booking)

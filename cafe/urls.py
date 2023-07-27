@@ -1,8 +1,8 @@
 """
 Urls to allow communication between pages in the app.
 """
-from . import views
 from django.urls import path
+from . import views
 from .views import SpecialsView
 
 
