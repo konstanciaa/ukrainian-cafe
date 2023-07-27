@@ -185,9 +185,9 @@ The application is responsive on all device sizes, thanks to the Boostrap theme.
 - The other navigation links are to the right: Today's Specials, Menu, Contact Us, Booking, Login which link to different sections and pages of the website.
 
 #### The hero image section
-- The hero image section displays a photo of one the drinks from cafe menu.
+- The hero image section displays a photo of one of the drinks from cafe menu.
 - The image also contains welcoming words.
-- The big yellow button calls to action: to book a table.
+- The big yellow button calls to action "Book a table".
 - After clicking the button, unregistered users are being redirected to sign in page where they can either sign up or login.
 
 ![hero image screenshot](static/assets/docs/header.jpg)
