@@ -230,9 +230,22 @@ To deploy the project through Heroku I followed these steps:
 - Also add the KEY - DISABLE_COLLECTSTATIC with the Value - 1 to the config vars. This key value pair must be removed prior to final deployment.
 - Add the cloudinary libraries to the list of installed apps, the order they are inserted is important, 'cloudinary_storage' goes above 'django.contrib.staitcfiles' and 'cloudinary' goes below it.
 - In the Settings.py file - add the STATIC files settings - the url, storage path, directory path, root path, media url and default file storage path.
+- Link the file to the templates directory in Heroku TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates').
+- Change the templates directory to TEMPLATES_DIR - 'DIRS': [TEMPLATES_DIR].
+- Add Heroku to the ALLOWED_HOSTS list the format will be the app name given in Heroku when creating the app followed by .herokuapp.com.
+- In your code editor, create three new top level folders, media, static, templates.
+- Create a new file on the top level directory - Procfile.
+- Within the Procfile add the code - web: guincorn PROJECT_NAME.wsgi.
+- In the terminal, add the changed files, commit and push to GitHub.
+- In Heroku, navigate to the deployment tab and deploy the branch manually - watch the build logs for any errors.
+- Heroku will now build the app for you. Once it has completed the build process you will see a 'Your App Was Successfully Deployed' message and a link to the app to visit the live site.
 
+#### Forking the repository
 
+By forking the GitHub Repository you can make a copy of the original repository to view or change without it effecting the original repository. You can do this by:
 
+- Sign up / Log in to GitHub.
+- Locate
 
 
 ---
