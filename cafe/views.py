@@ -2,12 +2,12 @@
 Views to create application logic.
 """
 from django.shortcuts import render, redirect, get_object_or_404
+from django.db import IntegrityError
 from django.views import generic, View
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import Booking, Specials
 from .forms import BookingForm, SpecialsForm
-
 
 from django.contrib.auth.decorators import login_required
 
@@ -112,14 +112,19 @@ def add_booking(request):
     """
     if request.method == 'POST':
         form = BookingForm(request.POST)
-        if form.is_valid():
-            booking = form.save()
-            booking.user = request.user
-            booking.save()
-            messages.success(request, 'Booking successful.')
-            return redirect('view_booking')
-        else:
-            messages.error(request, 'Booking date must be in the future.')
+        try:
+            if form.is_valid():
+                booking = form.save()
+                booking.user = request.user
+                booking.save()
+                messages.success(request, 'Booking successful.')
+                return redirect('view_booking')
+            else:
+                messages.error(request, 'Booking date must be in the future.')
+        except IntegrityError as e:
+            if 'cafe_booking_user_id_first_name_last__25ede966_uniq' in str(e.args):
+                messages.success(request, 'The booking already exists.')
+                redirect('home')
     form = BookingForm()
     context = {
         'form': form
@@ -152,7 +157,9 @@ def edit_booking(request, booking_id):
     Enables user to edit a booking after
     it has been made and added to the database.
     """
-    book = get_object_or_404(Booking, id=booking_id)
+    bookings = Booking.objects.filter(user__in=[request.user])
+    book = get_object_or_404(bookings, id=booking_id)
+
     if request.method == "POST":
         form = BookingForm(request.POST, instance=book)
         if form.is_valid():
@@ -174,7 +181,8 @@ def delete_booking(request, booking_id):
     Enables user to delete a booking after
     it has been made and added to the database.
     """
-    booking = get_object_or_404(Booking, id=booking_id)
+    bookings = Booking.objects.filter(user__in=[request.user])
+    booking = get_object_or_404(bookings, id=booking_id)
     if request.method == "POST":
         form = BookingForm(request.POST, instance=booking)
         if booking.delete():
@@ -186,29 +194,3 @@ def delete_booking(request, booking_id):
         'form': form
     }
     return render(request, 'delete_booking.html', context)
-
-
-def handler404(request, *args, **argv):
-    """
-    Customizes 404 error page if booking is not found.
-    """
-    form = BookingForm()
-    context = {
-        'form': form
-        }
-    response = render(request, 'not_found.html', context)
-    response.status_code = 404
-    return response
-
-
-def handler500(request, *args, **argv):
-    """
-    Customizes 500 error page if booking is duplicate.
-    """
-    bookings = Booking.objects.all()
-    context = {
-        'bookings': bookings
-    }
-    response = render(request, 'duplicate_booking.html', context)
-    response.status_code = 500
-    return response

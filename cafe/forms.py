@@ -4,6 +4,7 @@ specials forms.
 Based on the Booking and Specials models.
 """
 from datetime import datetime
+
 from django import forms
 from tempus_dominus.widgets import DateTimePicker
 from crispy_forms.helper import FormHelper
@@ -35,7 +36,7 @@ class BookingForm(forms.ModelForm):
     booking_date = forms.DateField(widget=forms.DateInput(
                         attrs={'type': 'date', 'min': datetime.now().date()})
                         )
-    time = forms.CharField(max_length=5)
+    time = forms.TimeField(widget=forms.TimeInput(attrs={'type': 'time'}))
     guests = forms.IntegerField()
 
 

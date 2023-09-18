@@ -45,7 +45,7 @@ class Booking(models.Model):
     email = models.EmailField()
     booking_date = models.DateField(null=True, blank=True)
 
-    def validate_date(self, booking_date):
+    def validate_date(booking_date):
         """
         Validate date so that booking date
         is not in the past.
@@ -55,7 +55,7 @@ class Booking(models.Model):
     booking_date = models.DateField(
         null=True, blank=True, validators=[validate_date]
         )
-    time = models.CharField(null=True, blank=True, max_length=5)
+    time = models.TimeField(null=True, blank=True)
     guests = models.PositiveIntegerField(
         null=True, validators=[MinValueValidator(1)]
         )
