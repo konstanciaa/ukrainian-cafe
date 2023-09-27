@@ -32,7 +32,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'ukrainian-cafe-f4f96fd63fc0.herokuapp.com',
-    '8000-konstanciaa-ukrainianca-pbj2ccpd7fx.ws-eu104.gitpod.io'
+    '8000-konstanciaa-ukrainianca-pbj2ccpd7fx.ws-eu105.gitpod.io'
     ]
 
 

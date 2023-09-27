@@ -41,7 +41,7 @@ class Booking(models.Model):
     first_name = models.CharField(max_length=30, null=True)
     last_name = models.CharField(max_length=50, null=True)
     phone = models.CharField(max_length=15, null=True)
-    email = models.EmailField()
+    email = models.EmailField(max_length=50, null=True)
     booking_date = models.DateField(null=True, blank=True)
 
     def validate_date(booking_date):
