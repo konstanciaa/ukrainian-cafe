@@ -114,7 +114,7 @@ def add_booking(request):
         form = BookingForm(request.POST)
         try:
             if form.is_valid():
-                booking = form.save()
+                booking = form.save(commit=False)
                 booking.user = request.user
                 booking.save()
                 messages.success(request, 'Booking successful.')
@@ -123,8 +123,8 @@ def add_booking(request):
                 messages.error(request, 'Booking date must be in the future.')
         except IntegrityError as e:
             if 'cafe_booking_user_id_first_name_last__25ede966_uniq' in str(e.args):
-                messages.success(request, 'The booking already exists.')
-                redirect('home')
+                messages.error(request, 'The booking already exists.')
+                return redirect('home')
     form = BookingForm()
     context = {
         'form': form

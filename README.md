@@ -449,5 +449,5 @@ Both [Alan Bushell's](https://github.com/Alan-Bushell/la-cocina-del-diablo/) and
 My mentor who provided me with constructive feedback  and guidance throughout the project.
 
 #### The tutors at Code institute
-To all the tutors in CI, thank you for your help. Special shout outs to Kevin, Sean, Oisin, Alan.
+To all the tutors in CI, thank you for your help. Special shout outs to Kevin, Sean, Oisin, Alan, and Jason.
 
