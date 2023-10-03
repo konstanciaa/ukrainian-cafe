@@ -34,31 +34,33 @@ Each user story was manually tested in line with intended functionality on both 
 |--|--|
 | Log out and try to open booking page by adding "/add_booking/" to website's url  | Redirected to Sign in page |
 | Log out and try to access Today's Specials page by adding "/today_specials/" to website's url  | Redirected to Sign in page |
-|Non logged in user cannot access bookings page | Pass|
-|Non superuser cannot view all users bookings |Pass|
-|Non superuser cannot access Today's Specials page |Pass|
-|Non superuser cannot access admin panel|Pass|
+| Click "Booking" | Redirected to Sign in page|
+| Add "/bookings/" to website's url | 404 page |
 
 ### Booking Tests
 
-| Test |Result  |
+| Instruction |Result  |
 |--|--|
-|User can make a booking when all fields complete | Pass |
-|User tries to submit booking with empty form |Fail|
-|User tries to submit form without email address| Fail|
-|User tries to submit form without phone number | Fail|
-|User can view their bookings on My Bookings page |Pass|
-|User can edit their booking | Pass|
-|User can delete their booking | Pass|
-|Business owner can view all bookings | Pass |
-|Business owner can edit all bookings | Pass |
-|Business owner can delete all bookings | Pass |
+| Login and click "Book a Table"| Redirected to booking form page |
+| Try to submit an empty form | All the fields are required |
+| Enter data in the past and try to submit the form | The form is not submitted. Future data is required |
+| Enter all the required data and submit the form | The form is submitted, I'm redirected to View bookings page. |
+| Click "Edit Booking" | Redirected to the booking form, prefilled with the specific booking information. |
+| Change some data in your booking and submit the form | The form is submitted, the booking information is updated|
+| Click "Delete Booking" | Redirected to the booking form with the specific booking information and the question "Are you sure you want to delete this booking?" |
+| Click "Delete Booking" again. | The booking is deleted. |
+| Login as an admin and click "Bookings" | Business owner can view, edit and delete all bookings |
 
 ### Specials Tests
 
-| Test |Result  |
+| Instruction | Result  |
 |--|--|
-|Business owner can add items to specials|Pass|
-|Business owner can add a new item with title, description and image in "Add Specials" form |Pass|
-|Business owner can edit items in specials|Pass|
-|Business owner can delete items in specials|Pass|
+| Login as an admin and tap "Today's Specials" in menu | Redirected to Today's Specials page |
+| Click "Add Specials" | Redirected to "Add Specials" page with form. There are four fields: Title, Descriptiion, Image, Today |
+| Fill out the form, add an image, type "yes" in Today field | All the fields work properly. The form is submitted. I'm redirected to today's specials list |
+| Go to home page and check Today's Specials | My dish is added to today's specials |
+| Tap "Today's Specials" in menu. Find the dish you added and click "Edit" | Redirected to edit specials page with the form. |
+| Type "no" instead of "yes" in Today field. Submit the form. | The form is submitted. I'm redirected to today's specials list |
+| Go to home page and check Today's Specials | My dish is no longer shown in today's specials on home page |
+| Tap "Today's Specials" in menu. Find the dish you added and click "Delete" | Redirected to delete specials page with the form and question "Are you sure...?" |
+| Click "Delete" | Redirected to today's specials list. The item has been deleted |
